@@ -1,0 +1,77 @@
+.gig-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.gig-card:hover {
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.12);
+  transform: translateY(-2px);
+}
+
+.gig-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.gig-card__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+  flex: 1;
+}
+
+.gig-card__price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary, #4f46e5);
+  white-space: nowrap;
+}
+
+.gig-card__description {
+  font-size: 0.88rem;
+  color: #6b7280;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.gig-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.gig-card__freelancer {
+  font-size: 0.83rem;
+  color: #6b7280;
+}
+
+.gig-card__freelancer strong {
+  color: #374151;
+}
+
+.gig-card__book-btn {
+  background-color: var(--primary, #4f46e5);
+  color: #ffffff;
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.gig-card__book-btn:hover {
+  background-color: #4338ca;
+}

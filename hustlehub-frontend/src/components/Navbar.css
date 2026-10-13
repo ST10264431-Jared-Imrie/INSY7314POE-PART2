@@ -1,0 +1,96 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 64px;
+  background-color: #1a1a2e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar__brand-link {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.navbar__brand-link:hover {
+  color: #a5b4fc;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar__link {
+  color: #c7d2fe;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar__link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.navbar__link--register {
+  background-color: var(--primary, #4f46e5);
+  color: #ffffff;
+}
+
+.navbar__link--register:hover {
+  background-color: #4338ca;
+  color: #ffffff;
+}
+
+.navbar__user-name {
+  color: #e0e7ff;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.navbar__role-badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.03em;
+}
+
+.navbar__role-badge--client {
+  background-color: #1d4ed8;
+  color: #dbeafe;
+}
+
+.navbar__role-badge--freelancer {
+  background-color: #15803d;
+  color: #dcfce7;
+}
+
+.navbar__logout-btn {
+  background-color: transparent;
+  border: 1px solid #6366f1;
+  color: #c7d2fe;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar__logout-btn:hover {
+  background-color: #6366f1;
+  color: #ffffff;
+}

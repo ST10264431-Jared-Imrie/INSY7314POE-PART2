@@ -1,0 +1,158 @@
+.client-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.25rem;
+}
+
+.dashboard-title__name {
+  color: var(--primary, #4f46e5);
+}
+
+.dashboard-subtitle {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.dashboard-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.gigs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.loading-text {
+  color: #6b7280;
+  font-size: 0.95rem;
+  padding: 1rem 0;
+}
+
+.empty-text {
+  color: #9ca3af;
+  font-size: 0.95rem;
+  padding: 1rem 0;
+}
+
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.alert--success {
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  color: var(--success, #22c55e);
+}
+
+.alert--error {
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: var(--error, #ef4444);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 0.65rem 1rem;
+  background-color: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.data-table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge--pending {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.status-badge--confirmed {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-badge--completed {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-badge--cancelled {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.pay-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.pay-badge--paid {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.pay-badge--unpaid {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.pay-badge--refunded {
+  background-color: #ede9fe;
+  color: #5b21b6;
+}

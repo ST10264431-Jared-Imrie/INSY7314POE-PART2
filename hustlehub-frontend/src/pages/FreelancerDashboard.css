@@ -1,0 +1,362 @@
+.freelancer-dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.25rem;
+}
+
+.dashboard-title__name {
+  color: var(--primary, #4f46e5);
+}
+
+.dashboard-subtitle {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.dashboard-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+/* Earnings */
+.earnings-card {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #ffffff;
+  padding: 1.5rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+}
+
+.earnings-card__main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.earnings-card__label {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.earnings-card__amount {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.earnings-card__stats {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  opacity: 0.9;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Gig form */
+.gig-form {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 560px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-input {
+  padding: 0.6rem 0.85rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #111827;
+  background: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.form-input:focus {
+  border-color: var(--primary, #4f46e5);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.form-input--error {
+  border-color: var(--error, #ef4444);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: var(--error, #ef4444);
+  font-weight: 500;
+}
+
+/* Table */
+.loading-text {
+  color: #6b7280;
+  font-size: 0.95rem;
+  padding: 1rem 0;
+}
+
+.empty-text {
+  color: #9ca3af;
+  font-size: 0.95rem;
+  padding: 1rem 0;
+}
+
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.alert--success {
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  color: var(--success, #22c55e);
+}
+
+.alert--error {
+  background-color: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: var(--error, #ef4444);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 0.65rem 1rem;
+  background-color: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.data-table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+  vertical-align: top;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.td-description {
+  max-width: 280px;
+  word-break: break-word;
+}
+
+/* Buttons */
+.btn-primary {
+  padding: 0.65rem 1.25rem;
+  background-color: var(--primary, #4f46e5);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  align-self: flex-start;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #4338ca;
+}
+
+.btn-primary:disabled {
+  background-color: #a5b4fc;
+  cursor: not-allowed;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-sm {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-sm--primary {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.btn-sm--primary:hover {
+  background-color: #bfdbfe;
+}
+
+.btn-sm--danger {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.btn-sm--danger:hover {
+  background-color: #fecaca;
+}
+
+.btn-sm--success {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.btn-sm--success:hover {
+  background-color: #bbf7d0;
+}
+
+.btn-sm--secondary {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.btn-sm--secondary:hover {
+  background-color: #e5e7eb;
+}
+
+/* Inline edit */
+.edit-row td {
+  background-color: #f0f4ff;
+  padding: 1rem;
+}
+
+.inline-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.inline-edit-fields {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.inline-edit-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-badge--pending {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.status-badge--confirmed {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-badge--completed {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-badge--cancelled {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.pay-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.pay-badge--paid {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.pay-badge--unpaid {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.pay-badge--refunded {
+  background-color: #ede9fe;
+  color: #5b21b6;
+}
+
+@media (max-width: 640px) {
+  .inline-edit-fields {
+    grid-template-columns: 1fr;
+  }
+}

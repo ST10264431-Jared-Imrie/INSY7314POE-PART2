@@ -1,87 +1,95 @@
-const fs = require('fs');
-const path = require('path');
-const bcrypt = require('bcryptjs');
+const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const config = require('../config/keys');
 
-const usersFilePath = path.join(__dirname, '../data/users.json');
+// ─── Helper: issue JWT ─────────────────────────────────────────────────────────
 
-const getUsers = () => {
-  try {
-    if (!fs.existsSync(usersFilePath)) return [];
-    const data = fs.readFileSync(usersFilePath, 'utf8');
-    return JSON.parse(data || '[]');
-  } catch (e) {
-    return [];
-  }
-};
+const signToken = (user) =>
+  jwt.sign(
+    { id: user._id, email: user.email, role: user.role },
+    config.jwtSecret,
+    { expiresIn: '2h' }
+  );
 
-const saveUsers = (users) => {
-  fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-};
+// ─── Register ──────────────────────────────────────────────────────────────────
 
 exports.register = async (req, res, next) => {
   try {
     const { name, email, password, role } = req.body;
-    const users = getUsers();
 
-    if (users.find(u => u.email === email)) {
+    // Check for duplicate email
+    const existing = await User.findOne({ email });
+    if (existing) {
       return res.status(400).json({ status: 'fail', message: 'User with this email already exists.' });
     }
 
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    // Admin role cannot be self-assigned via public API
+    const allowedRole = role === 'admin' ? 'freelancer' : (role || 'freelancer');
 
-    const newUser = {
-      id: Date.now().toString(),
-      name,
-      email,
-      password: hashedPassword,
-      role: role || 'freelancer',
-      createdAt: new Date().toISOString()
-    };
-
-    users.push(newUser);
-    saveUsers(users);
+    const user = await User.create({ name, email, password, role: allowedRole });
 
     return res.status(201).json({
       status: 'success',
       message: 'User registered successfully.',
-      data: { userId: newUser.id, name: newUser.name, email: newUser.email, role: newUser.role }
+      data: {
+        userId: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role
+      }
     });
-  } catch (err) { next(err); }
+  } catch (err) {
+    next(err);
+  }
 };
+
+// ─── Login ─────────────────────────────────────────────────────────────────────
 
 exports.login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const users = getUsers();
-    const user = users.find(u => u.email === email);
 
-    if (!user || !(await bcrypt.compare(password, user.password))) {
+    // Explicitly select password (excluded by default in schema)
+    const user = await User.findOne({ email }).select('+password');
+
+    if (!user || !(await user.matchPassword(password))) {
       return res.status(401).json({ status: 'fail', message: 'Invalid email or password.' });
     }
 
-    const token = jwt.sign({ id: user.id, email: user.email, role: user.role }, config.jwtSecret, { expiresIn: '2h' });
+    const token = signToken(user);
 
     return res.status(200).json({
       status: 'success',
       message: 'Login successful.',
-      token: token,
-      user: { id: user.id, name: user.name, email: user.email, role: user.role }
+      token,
+      user: { id: user._id, name: user.name, email: user.email, role: user.role }
     });
-  } catch (err) { next(err); }
+  } catch (err) {
+    next(err);
+  }
 };
+
+// ─── Get Profile ───────────────────────────────────────────────────────────────
 
 exports.getProfile = async (req, res, next) => {
   try {
-    const users = getUsers();
-    const user = users.find(u => u.id === req.user.id);
-    if (!user) return res.status(404).json({ status: 'fail', message: 'User profile not found.' });
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ status: 'fail', message: 'User profile not found.' });
+    }
 
     return res.status(200).json({
       status: 'success',
-      data: { id: user.id, name: user.name, email: user.email, role: user.role, createdAt: user.createdAt }
+      data: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        totalEarnings: user.totalEarnings,
+        createdAt: user.createdAt
+      }
     });
-  } catch (err) { next(err); }
+  } catch (err) {
+    next(err);
+  }
 };
